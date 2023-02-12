@@ -451,17 +451,20 @@ class Runtime {
     }
 
     createGPUCanvasContext(htmlCanvas: HTMLCanvasElement): [GPUCanvasContext, GPUTextureFormat] {
-        let context = htmlCanvas.getContext('webgpu')
+        let context = htmlCanvas.getContext('webgpu', {alpha: true})
         if (context === null) {
             error("canvas webgpu context is null")
         }
         let presentationFormat = navigator.gpu.getPreferredCanvasFormat()
 
+        //@ts-ignore
         context!.configure({
             device: this.device!,
             format: presentationFormat,
             alphaMode: 'opaque'
         })
+
+        //@ts-ignore
         return [context!, presentationFormat]
     }
 
