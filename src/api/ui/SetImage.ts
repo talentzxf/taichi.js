@@ -33,7 +33,7 @@ class SetImage {
                     let coord = (f + 1) / 2.0
                     //@ts-ignore
                     let texelIndex = ti.i32(coord * (image.dimensions - 1))
-                    let color = image[texelIndex].rgb
+                    // let color = image[texelIndex].rgb
                     // ti.outputColor(this.renderTarget, color.concat([1.0]))
                     ti.outputColor(this.renderTarget, image[texelIndex])
                 }
