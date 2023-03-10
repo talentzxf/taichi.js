@@ -184,12 +184,12 @@ class CompiledRenderPipeline {
                     color: {
                         operation: "add",
                         srcFactor: "src-alpha",
-                        dstFactor: "dst-alpha"
+                        dstFactor: "one-minus-src-alpha"
                     },
                     alpha:{
                         operation: "add",
                         srcFactor: "src-alpha",
-                        dstFactor: "dst-alpha"
+                        dstFactor: "one-minus-src-alpha"
                     }
                 }
             })
