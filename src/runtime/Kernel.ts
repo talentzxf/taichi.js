@@ -179,7 +179,19 @@ class CompiledRenderPipeline {
         let result: GPUColorTargetState[] = []
         for (let tex of renderPassParams.colorAttachments) {
             result.push({
-                format: tex.texture.getGPUTextureFormat()
+                format: tex.texture.getGPUTextureFormat(),
+                blend: {
+                    color: {
+                        operation: "add",
+                        srcFactor: "src-alpha",
+                        dstFactor: "dst-alpha"
+                    },
+                    alpha:{
+                        operation: "add",
+                        srcFactor: "src-alpha",
+                        dstFactor: "dst-alpha"
+                    }
+                }
             })
         }
         return result
